@@ -16,9 +16,9 @@ public class MerchantServices extends Services {
         System.out.println("3. Update Category data");
         System.out.println("4. Update Product Data");
         System.out.println("5. Display All Categories ");
-        System.out.println("6. Display All Products with short Details in Category ");
-            System.out.println("7. ADD New Customers ");
-            System.out.println("8. Exit ");
+        System.out.println("6. Display All Products with short Details in Category\n7. View All Bills In Store");
+            System.out.println("8. ADD New Customers ");
+            System.out.println("9. Exit ");
          action = Main.readerNumbers.nextInt() ;
      switch (action) {
          case 1 : addCategories();
@@ -41,6 +41,10 @@ public class MerchantServices extends Services {
          break;
 
          case 7 :
+             viewAllBills();
+             break;
+
+         case 8 :
              addCustomers();
              break;
 
@@ -49,7 +53,7 @@ public class MerchantServices extends Services {
      }
 
 
-        }while(action != 8);
+        }while(action != 9);
 
 
 
@@ -145,22 +149,16 @@ public class MerchantServices extends Services {
 
         }
 
-//    public void displayAllCategories() {
-//        System.out.println("<<< Display All Categories >>>\n");
-//        for(Category category : Store.categories)
-//            System.out.println(category.toString() + "\n");
-//    }
 
-//    public void displayAllProductInCategory() {
-//        System.out.println("<<< Display All Product in Category selected >>> \n");
-//        Category category = this.receivingCategory() ;
-//        if(category == null) {
-//            System.out.println("The number you entered is not known! , try again");
-//            return;
-//        }
-//        category.displayAllProducts();
-//
-//    }
+        public void viewAllBills() {
+        if(Store.bills.isEmpty()){
+            System.out.println("No Bills ! , try again ");
+            return ;
+        }
+            System.out.println("<<<< View All Bills in Store >>>>\n");
+        for(Bill bill : Store.bills)
+            System.out.println(bill.toString());
+        }
 
         ////////////////////////////////////////////////////////// HELPER Functions  /////////////////////////////////////////////////////////
 
@@ -173,13 +171,7 @@ public class MerchantServices extends Services {
         }
     }
 
-//    public Category receivingCategory() {
-//        this.displayCategories();
-//        System.out.println("Please Enter Number / ID Category .");
-//        int input = Main.readerNumbers.nextInt() ;
-//        return Category.getCategoryByNumber(input);
-//
-//    }
+
 
     public void displayCategories() {
         for(Category category : Store.categories)

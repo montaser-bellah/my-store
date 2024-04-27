@@ -19,7 +19,7 @@ public class Bill {
         this.billId = number;
         this.purchaseDate = LocalDate.now() ;
         this.purchasedProducts = new ArrayList<>( );
-//        System.out.println("Bill number = "+ number);
+
     }
 
     public int getBillId() {
@@ -136,6 +136,7 @@ public class Bill {
         System.out.println("The Current Bill is "+ currentAmount+" ||"
                 +" Product Name: " +product.getName() +" || product quantity: " + quantityNeeded );
         System.out.println("...................................................................");
+        Store.bills.add(this);
 
     }
 
