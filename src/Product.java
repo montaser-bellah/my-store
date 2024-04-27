@@ -6,6 +6,9 @@ public class Product {
 
     public Product() {
     }
+    public Product(int productNumber){
+        this.productNumber = productNumber;
+    }
 
     public Product(String name, String description, String color, int productNumber, float price, int quantity) {
         this.name = name;
@@ -66,11 +69,46 @@ public class Product {
 
     @Override
     public String toString() {
+        return "\nProduct { " +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", productNumber=" + productNumber +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                " }\n";
+    }
+
+
+
+    public String productDetailsInBill() {
+        return
+        "Product { " +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                " }";
+    }
+
+
+    public void updateProductData() {
+        System.out.println("<<< Updating Product DATA >>> \n");
+        System.out.println("Please Enter New Name Product .");
+        this.name = Main.readerStrings.nextLine() ;
+        System.out.println("Please Enter New Description Product .");
+        this.description = Main.readerStrings.nextLine() ;
+        System.out.println("Please Enter New Price Product .");
+        this.price = Main.readerNumbers.nextFloat() ;
+        System.out.println("Please Enter New Quantity Product .");
+        this.quantity = Main.readerNumbers.nextInt() ;
+        System.out.println("Product successfully Updating :) ");
+        System.out.println(">>> " +this.toString());
+    }
+
+
+    public String shortDetails() {
         return "Product { " +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", color='" + color + '\'' +
-                ", productNumber=" + productNumber +
                 ", price=" + price +
                 ", quantity=" + quantity +
                 " }";

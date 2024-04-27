@@ -5,14 +5,7 @@ public class Main {
     static  Scanner readerNumbers = new Scanner(System.in);
     public static void main(String[] args) {
 
-        Store myStore = new Store("montaser-Store");
+        Store myStore = new Store("montaser Bellah Mahmoud Ali Abutaha -Store");
 
-
-        System.out.println("Hello world!");
-
-        Person p = new Person("montaer", "m", "2020");
-
-        Merchant m = new Merchant();
-        m.merchantServices.mainMenu();
     }
 }

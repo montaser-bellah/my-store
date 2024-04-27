@@ -1,13 +1,55 @@
 public class Person {
-    String userName, password, birthYear, userType ;
+   private String userName, password, birthDate, userType ;
     Person() {
+        Store.persons.add(this);
 
     }
 
-    Person(String userName, String password, String birthYear) {
+    public Person(String userName, String password, String birthDate) {
         this.userName = userName ;
         this.password = password ;
-        this.birthYear = birthYear ;
-        System.out.println(this.userName);
+        this.birthDate = birthDate ;
+        Store.persons.add(this);
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                '}';
     }
 }
