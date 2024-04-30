@@ -1,10 +1,6 @@
 
 public class MerchantServices extends Services {
-//    Merchant merchant ;
-//
-//    MerchantServices(Merchant merchant) {
-//        this.merchant = merchant ;
-//    }
+
 
 
     public void mainMenu() {
@@ -166,8 +162,12 @@ public class MerchantServices extends Services {
     private  void addingProductIfHeWanted(Category category) {
         String answer = Main.readerStrings.nextLine();
         if(answer.toLowerCase().equals("y")) {
-            for (int i = 0; i < category.getProductCounts(); i++)
+            for (int i = 0; i < category.getProductCounts(); i++) {
                 category.addProduct();
+                System.out.println("Do you want to continue adding products? (Y, N) .");
+                String answer2 = Main.readerStrings.nextLine();
+                if (answer2.toLowerCase().equals("n")) break;
+            }
         }
     }
 

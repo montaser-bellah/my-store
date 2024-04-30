@@ -101,7 +101,7 @@ public class Bill {
     }
 
 
-    public void processPayment() {
+    public double processPayment() {
         System.out.println("Please Select the type of transaction you want to pay with .");
         System.out.println("1. USD $\n2. ILS ₪ \n3. JOD ₫");
         int choice = Main.readerNumbers.nextInt() ;
@@ -118,6 +118,7 @@ public class Bill {
                 break;
         }
         System.out.println("Your Total Amount in Shekels: " + customerAmount);
+        return customerAmount;
 
     }
 
@@ -131,10 +132,19 @@ public class Bill {
         this.purchasedProducts.add(product);
         product.setQuantity(product.getQuantity() - quantityNeeded);
 
+
         double currentAmount = quantityNeeded * product.getPrice();
         this.amount +=currentAmount;
         System.out.println("The Current Bill is "+ currentAmount+" ||"
-                +" Product Name: " +product.getName() +" || product quantity: " + quantityNeeded );
+                +" Product Name: " +product.getName() +" || product quantity: " + quantityNeeded+"\n" );
+        double customerAmount = this.processPayment();
+        if(customerAmount < currentAmount) {
+            System.out.println("Please, The amount you have is less than required!");
+            return ;
+        }
+        double remainingAmount = customerAmount - currentAmount ;
+        System.out.println("Remaining Amount is :>" +remainingAmount);
+
         System.out.println("...................................................................");
         Store.bills.add(this);
 
